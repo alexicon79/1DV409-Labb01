@@ -1,0 +1,37 @@
+﻿@model NumberGuessingGame.Models.SecretNumber
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        Guess a number between 1 and 100.
+
+        @using (Html.BeginForm())
+        {
+            @Html.Editor("guess")
+            <input id="submit" type="submit" value="send" />
+        }
+
+        @if (Model != null)
+        {   
+
+            @:Antal gissningar @Model.GuessedNumbers.Count
+               
+            foreach (var number in Model.GuessedNumbers)
+            {
+                @number.Number @:<br />
+                @number.Outcome @:<br />
+            }
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="NumberGuessingGame.Models.SecretNumber">
+    <Position X="1" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAQAQAUEAAAQAAAAAAEAAEAAAAhBAAAA=</HashCode>
+      <FileName>Models\SecretNumber.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_lastGuessedNumber" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_guessedNumbers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Struct Name="NumberGuessingGame.Models.GuessedNumber">
+    <Position X="8.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GuessedNumber.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Outcome" />
+    </ShowAsAssociation>
+  </Struct>
+  <Enum Name="NumberGuessingGame.Models.Outcome">
+    <Position X="8.5" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAgAAAAAAAAgABAAAAACAAgAAAAA=</HashCode>
+      <FileName>Models\Outcome.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
