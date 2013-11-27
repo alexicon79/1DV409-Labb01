@@ -1,37 +1,32 @@
-﻿@model NumberGuessingGame.Models.SecretNumber
+﻿@model NumberGuessingGame.ViewModels.SecretNumberViewModel
 
 @{
-    Layout = null;
+    ViewBag.Title = "Guess";
 }
 
-<!DOCTYPE html>
+<div id="mainWrapper">
+    <h1>Guess the Secret Number</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Guess the Secret Number</title>
-</head>
-<body>
-    <div>
-        Guess a number between 1 and 100
-
+    <div id="gameWrapper">
+        <h2>Make a guess between 1 and 100</h2>
         @using (Html.BeginForm())
         {
-            @Html.Editor("guess")
+            @Html.ValidationSummary(true, "Something went wrong");
+            <h2>@Model.GuessMessage</h2>
+            @Html.TextBoxFor(viewModel => viewModel.UserGuess)
             <input id="submit" type="submit" value="send" />
+            @Html.ValidationMessageFor(viewModel => viewModel.UserGuess)
         }
+        
+        @Html.Partial("_GameResults")
 
-        @if (Model != null)
-        {   
-
-            @:Antal gissningar @Model.GuessedNumbers.Count
-               
-            foreach (var number in Model.GuessedNumbers)
-            {
-                @number.Number @:<br />
-                @number.Outcome @:<br />
-            }
-        }
     </div>
-</body>
-</html>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $("#UserGuess").val("");
+        $("#UserGuess").focus();
+    </script>
+}

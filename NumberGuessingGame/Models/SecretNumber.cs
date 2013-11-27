@@ -98,7 +98,7 @@ namespace NumberGuessingGame.Models
 
         public Outcome MakeGuess(int guess)
         {
-            // kontrollerar att gissningen är mellan 1 och 100, om inte kastas undantag
+            // check if guess is between 1 and 100, otherwise throw exception
             if (guess > 0 && guess <= 100)
             {
                 var currentGuess = new GuessedNumber();
@@ -107,11 +107,13 @@ namespace NumberGuessingGame.Models
                 if (!CanMakeGuess)
                 {
                     currentGuess.Outcome = Outcome.NoMoreGuesses;
+                    m_lastGuessedNumber = currentGuess;
                     return Outcome.NoMoreGuesses;
                 }
                 if (IsOldGuess(currentGuess))
                 {
                     currentGuess.Outcome = Outcome.OldGuess;
+                    m_lastGuessedNumber = currentGuess;
                     return Outcome.OldGuess;
                 }
                 else if (currentGuess.Number == m_secretNumber)
@@ -151,6 +153,9 @@ namespace NumberGuessingGame.Models
 
         public bool IsOldGuess(GuessedNumber guess)
         {
+            var guess1 = guess;
+            var check1 = m_guessedNumbers;
+
             var check = m_guessedNumbers.Find(obj => obj.Number == guess.Number);
             if (check.Number.HasValue)
             {

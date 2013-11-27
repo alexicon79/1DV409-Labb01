@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "SessionExpired";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Session has expired</h2>
+
+<p>Sorry, you took too long. Your game has been cancelled.</p>
+
+@Html.ActionLink("Start over", "New")

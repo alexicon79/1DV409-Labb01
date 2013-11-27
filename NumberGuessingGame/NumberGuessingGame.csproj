@@ -134,6 +134,7 @@
     <Compile Include="Models\Outcome.cs" />
     <Compile Include="Models\SecretNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\SecretNumberViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
@@ -221,6 +222,8 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Game\Index.cshtml" />
+    <Content Include="Views\Game\_GameResults.cshtml" />
+    <Content Include="Views\Game\SessionExpired.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

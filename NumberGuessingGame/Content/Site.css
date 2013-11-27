@@ -9,6 +9,63 @@ header, footer, nav, section {
     display: block;
 }
 
+h1 {
+    margin-left: 2%;
+    color: white;
+}
+
+div.resultBox {
+    margin: 10px 0;
+    padding: 8px;
+    width: 96%;
+    background: #425456;
+    border: 1px solid #808080;
+    border-radius: 3px;
+    font: normal 18px Helvetica;
+}
+div.resultBox span {
+    list-style: none;
+    display: inline-block;
+    padding: 8px;
+    width: 40px;
+    text-align: center;
+}
+
+div.resultBox span.guessLow {
+    background: #bfbb6d;
+}
+div.resultBox span.guessLow::after {
+    content: "\25B2";
+    float: right;
+    margin-right: -2px;
+}
+div.resultBox span.guessHigh {
+    background: #ea7577;
+}
+div.resultBox span.guessHigh:after {
+    content: "\25BC";
+    float: right;
+    margin-right: -2px;
+}
+div.resultBox span.guessCorrect {
+    background: #87c883;
+}
+
+#mainWrapper {
+    margin: 80px auto;
+    padding: 4px 4px;
+    border-radius: 3px;
+    width: 31.6%;
+    background: #425456;
+}
+
+#gameWrapper {
+    padding: 20px 2%;
+    margin-top: 0px;
+    background: #fff;
+    height: 300px;
+}
+
 
 /* Styles for basic forms
 -----------------------------------------------------------*/

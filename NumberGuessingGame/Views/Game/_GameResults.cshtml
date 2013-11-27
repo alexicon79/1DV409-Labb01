@@ -1,0 +1,30 @@
+﻿@model NumberGuessingGame.ViewModels.SecretNumberViewModel
+@using NumberGuessingGame.Models
+
+@if (Model != null)
+{
+
+    <p>@Model.ResultMessage</p>
+    
+    <div class="resultBox">
+    @foreach (var guess in Model.GuessedNumbers)
+    {
+        if (guess.Outcome == Outcome.Low)
+        {
+           <span class="guessLow">@guess.Number</span>
+        }
+        if (guess.Outcome == Outcome.High)
+        {
+            <span class="guessHigh">@guess.Number</span>
+        }
+        if (guess.Outcome == Outcome.Right)
+        {
+            <span class="guessCorrect">@guess.Number</span>
+        }
+    }
+    </div>
+    
+    @:Remaining guesses: @(7 - Model.GuessedNumbers.Count) <br />
+
+    @Html.ActionLink("Start Over", "New")
+}
