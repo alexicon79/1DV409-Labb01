@@ -11,13 +11,11 @@
         <h2>Make a guess between 1 and 100</h2>
         @using (Html.BeginForm())
         {
-            @Html.ValidationSummary(true, "Something went wrong");
             <h2>@Model.GuessMessage</h2>
             @Html.TextBoxFor(viewModel => viewModel.UserGuess)
             <input id="submit" type="submit" value="send" />
             @Html.ValidationMessageFor(viewModel => viewModel.UserGuess)
-        }
-        
+        }        
         @Html.Partial("_GameResults")
 
     </div>
@@ -25,8 +23,18 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script type="text/javascript">
-        $("#UserGuess").val("");
-        $("#UserGuess").focus();
-    </script>
+    @if (Model.CanMakeGuess)
+    { 
+        <script type="text/javascript">
+            $("#UserGuess").val("");
+            $("#UserGuess").focus();
+        </script>
+    }
+    else
+    {
+        <script type="text/javascript">
+            $("#UserGuess").prop("disabled", true);
+            $("#submit").prop("disabled", true);
+        </script>
+    }
 }

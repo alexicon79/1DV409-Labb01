@@ -14,9 +14,14 @@ h1 {
     color: white;
 }
 
+#UserGuess {
+    width: 10%;
+}
+
 div.resultBox {
     margin: 10px 0;
     padding: 8px;
+    min-height: 30px;
     width: 96%;
     background: #425456;
     border: 1px solid #808080;

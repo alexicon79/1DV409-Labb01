@@ -23,7 +23,31 @@ namespace NumberGuessingGame.ViewModels
         {
             get
             {
-                return "GuessMessage";
+                if (!CanMakeGuess && LastGuessedNumber.Outcome == Outcome.Right)
+                {
+                    return "Congratulations, you got it!";
+                }
+                switch (GuessedNumbers.Count)
+                {
+                    case 0:
+                        return "Welcome! Make your first guess...";
+                    case 1:
+                        return "Make your second guess...";
+                    case 2:
+                        return "Make your third guess...";
+                    case 3:
+                        return "Make your fourth guess...";
+                    case 4:
+                        return "Make your fifth guess...";
+                    case 5:
+                        return "Make your sixth guess...";
+                    case 6:
+                        return "Make your final guess...";
+                    case 7:
+                        return "Game over";
+                    default:
+                        return "Welcome";
+                }
             }
         }
 
@@ -48,6 +72,8 @@ namespace NumberGuessingGame.ViewModels
                         return "";
                     case Outcome.Right:
                         return Number + " is correct!";
+                    case Outcome.NoMoreGuesses:
+                        return "No guesses left. The secret number was " + Number;
                     default:
                         return "";
                 }

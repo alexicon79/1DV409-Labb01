@@ -3,9 +3,8 @@
 
 @if (Model != null)
 {
-
-    <p>@Model.ResultMessage</p>
-    
+    @Model.ResultMessage
+         
     <div class="resultBox">
     @foreach (var guess in Model.GuessedNumbers)
     {

@@ -57,6 +57,13 @@ namespace NumberGuessingGame.Controllers
                 m_secretNumber = Session[SECRET_NUMBER] as SecretNumber;
             }
 
+            // enables server side validation
+            if (m_secretNumberViewModel.UserGuess < 1 || m_secretNumberViewModel.UserGuess > 100)
+            {
+                m_secretNumberViewModel = this.PopulateViewModel(m_secretNumberViewModel, m_secretNumber);
+                return View("Index", m_secretNumberViewModel);
+            }
+
             if (ModelState.IsValid)
             {
                 // guess the secret number
